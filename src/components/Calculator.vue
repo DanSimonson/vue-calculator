@@ -1,35 +1,40 @@
 <template>
-  <div class="wrap">
-    <div class="calculator">
-      <div id="display" class="btn">{{result || 0}}</div>
-      <div @click="clear()" id="clear" class="btn">C</div>
-      <!--<div @click="number('1')" id="sign" class="btn">+/-</div>
-      <div @click="unique('%')" id="percent" class="btn">%</div>-->
-      <div @click="math('/' )" id="divide" class="btn operator">&#247</div>
-      <div @click="number('7')" id="seven" class="btn">7</div>
-      <div @click="number('8')" id="eight" class="btn">8</div>
-      <div @click="number('9')" id="nine" class="btn">9</div>
-      <div @click="math('*')" id="multiply" class="btn operator">&#215;</div>
-      <div @click="number('4')" id="four" class="btn">4</div>
-      <div @click="number('5')" id="five" class="btn">5</div>
-      <div @click="number('6')" id="six" class="btn">6</div>
-      <div @click="math('-')" id="subtract" class="btn operator">&#8722;</div>
-      <div @click="number('1')" id="one" class="btn">1</div>
-      <div @click="number('2')" id="two" class="btn">2</div>
-      <div @click="number('3')" id="three" class="btn">3</div>
-      <div @click="math('+')" id="add" class="btn operator">&#43;</div>
-      <div @click="number('0')" id="zero" class="btn">0</div>
-      <div @click="unique('.')" id="decimal" class="btn">.</div>
-      <div @click="equal" id="equals" class="btn operator">=</div>
+  <div>
+    <div class="wrap">
+      <div class="calculator">
+        <div id="display" class="btn">{{result || 0}}</div>
+        <div @click="clear()" id="clear" class="btn">C</div>
+        <div @click="math('/' )" id="divide" class="btn operator">&#247</div>
+        <div @click="number('7')" id="seven" class="btn">7</div>
+        <div @click="number('8')" id="eight" class="btn">8</div>
+        <div @click="number('9')" id="nine" class="btn">9</div>
+        <div @click="math('*')" id="multiply" class="btn operator">&#215;</div>
+        <div @click="number('4')" id="four" class="btn">4</div>
+        <div @click="number('5')" id="five" class="btn">5</div>
+        <div @click="number('6')" id="six" class="btn">6</div>
+        <div @click="math('-')" id="subtract" class="btn operator">&#8722;</div>
+        <div @click="number('1')" id="one" class="btn">1</div>
+        <div @click="number('2')" id="two" class="btn">2</div>
+        <div @click="number('3')" id="three" class="btn">3</div>
+        <div @click="math('+')" id="add" class="btn operator">&#43;</div>
+        <div @click="number('0')" id="zero" class="btn">0</div>
+        <div @click="unique('.')" id="decimal" class="btn">.</div>
+        <div @click="equal" id="equals" class="btn operator">=</div>
+      </div>
     </div>
+    <Footer/>
   </div>
 </template>
 
 <script>
+import Footer from "./Footer";
 export default {
   name: "Calculator",
   props: {
     msg: String
+  },
+  components: {
+    Footer
   },
   data() {
     return {
@@ -97,6 +102,12 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color 0.2s ease-in;
+}
+.btn:hover,
+.btn:active {
+  background-color: silver;
+  cursor: pointer;
 }
 .calculator {
   display: grid;
@@ -128,5 +139,11 @@ export default {
 .operator {
   background-color: orange;
   color: $White;
+  transition: background-color 0.2s ease-in;
+}
+.operator:hover,
+.operator:active {
+  background-color: darkorange;
+  cursor: pointer;
 }
 </style>
